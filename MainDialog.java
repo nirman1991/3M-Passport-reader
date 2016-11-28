@@ -1,16 +1,16 @@
-/*     */ package SwipeReader;
-/*     */ 
-/*     */ import com.mmm.readers.AAMVAData;
-/*     */ import com.mmm.readers.AAMVAParsedData;
-/*     */ import com.mmm.readers.CodelineData;
-/*     */ import com.mmm.readers.DataFormat;
-/*     */ import com.mmm.readers.Date;
-/*     */ import com.mmm.readers.ErrorCode;
-/*     */ import com.mmm.readers.ErrorHandler;
-/*     */ import com.mmm.readers.FullPage.EventCode;
-/*     */ import com.mmm.readers.FullPage.EventHandler;
-/*     */ import com.mmm.readers.interop.Marshal;
-/*     */ import com.mmm.readers.modules.Swipe.AtbData;
+ package SwipeReader;
+
+ import com.mmm.readers.AAMVAData;
+ import com.mmm.readers.AAMVAParsedData;
+ import com.mmm.readers.CodelineData;
+ import com.mmm.readers.DataFormat;
+ import com.mmm.readers.Date;
+ import com.mmm.readers.ErrorCode;
+ import com.mmm.readers.ErrorHandler;
+ import com.mmm.readers.FullPage.EventCode;
+ import com.mmm.readers.FullPage.EventHandler;
+ import com.mmm.readers.interop.Marshal;
+ import com.mmm.readers.modules.Swipe.AtbData;
 /*     */ import com.mmm.readers.modules.Swipe.AtbTrackData;
 /*     */ import com.mmm.readers.modules.Swipe.DataHandler;
 /*     */ import com.mmm.readers.modules.Swipe.DataToSend;
@@ -103,15 +103,18 @@ public class MainDialog extends JFrame implements ErrorHandler, DataHandler, Eve
         try 
         {
             //String setProperty = System.setProperty( "java.library.path", "D:\\PassportTrying\\PassportTry2" );
-            
+            String libpath = System.getProperty("java.library.path");
+            libpath = "D:\\PassportTrying\\PassportTry2\\dist;D:\\PassportTrying\\PassportTry2\\dist\\lib;" + libpath;
+            System.setProperty("java.library.path",libpath);
+    	
             System.out.println("JAVA PATH "+System.getProperty("java.library.path"));
             
-            System.loadLibrary("MMMReaderLowLevelJava");
+            
             System.loadLibrary("ErrorHandlerDll");
             System.loadLibrary("DeviceDll");
             System.loadLibrary("SettingsDll");
             System.loadLibrary("MMMReaderLowLevelAPI");
-            
+            System.loadLibrary("MMMReaderLowLevelJava");
             
             
             //System.load("D:\\PassportTrying\\PassportTry2\\libs\\ErrorHandlerDll.dll");
