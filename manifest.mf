@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: configurations.compile.collect { it.getName() }.join(' '),
+Main-Class: 'src/SwipeReader/MainDailog'
+
